@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: white;
+  background: #000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Звездный фон */
+.starry-bg {
+  background: radial-gradient(ellipse at top, #1e293b 0%, #020617 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+.starry-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #eee, transparent),
+    radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-size: 200px 100px;
+  animation: twinkle 10s infinite;
+  pointer-events: none;
+}
+
+.starry-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 50px 100px, #fff, transparent),
+    radial-gradient(1px 1px at 180px 120px, #eee, transparent),
+    radial-gradient(2px 2px at 250px 50px, #fff, transparent),
+    radial-gradient(1px 1px at 300px 150px, #ddd, transparent);
+  background-size: 300px 200px;
+  animation: twinkle 15s infinite reverse;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Анимация для навигации */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #fbbf24;
+}
+
