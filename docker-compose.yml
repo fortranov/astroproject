@@ -22,5 +22,7 @@ services:
       - nextjs
     networks:
       - dev
+      
 networks:
   dev:
+    driver: bridge
