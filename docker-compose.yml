@@ -1,4 +1,7 @@
-version: '3'
+networks:
+  dev:
+    driver: bridge
+    
 services:
   nextjs:
     build: 
@@ -22,7 +25,4 @@ services:
       - nextjs
     networks:
       - dev
-      
-networks:
-  dev:
-    driver: bridge
+
