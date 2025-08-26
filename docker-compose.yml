@@ -8,6 +8,8 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=production
+    networks:
+      - dev
   nginx:
     build:
       context: ./nginx
@@ -18,3 +20,8 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - nextjs
+    networks:
+      - dev
+networks:
+  dev:
+    driver: bridge
